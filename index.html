@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tollywood Movie Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #d32f2f;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .movies-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 2rem;
+    }
+    .movie-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 1rem;
+      width: 220px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .movie-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .movie-info {
+      padding: 1rem;
+    }
+    .movie-info h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+    }
+    .movie-info p {
+      margin: 0.25rem 0;
+    }
+    .book-btn {
+      margin-top: 0.75rem;
+      width: 100%;
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 4px;
+    }
+    .book-btn:hover {
+      background: #1565c0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Tollywood Movie Booking</h1>
+</header>
+
+<div class="movies-container" id="movies">
+  <!-- Movie cards will be injected here -->
+</div>
+
+<script>
+  const movies = [
+    {
+      title: "Dasara",
+      price: "₹250 (Regular) / ₹300 (Recliner)",
+      times: ["12:00 PM", "3:30 PM", "7:00 PM", "9:30 PM"],
+      img: "https://via.placeholder.com/220x330?text=Dasara+Poster"
+    },
+    {
+      title: "Kalki 2898 AD",
+      price: "₹170–₹410 (Varies by seat) :contentReference[oaicite:1]{index=1}",
+      times: ["1:00 PM", "4:00 PM", "7:00 PM", "10:00 PM"],
+      img: "https://via.placeholder.com/220x330?text=Kalki+2898+AD+Poster"
+    },
+    {
+      title: "Guntur Kaaram",
+      price: "Typical multiplex rates",
+      times: ["2:00 PM", "5:30 PM", "8:30 PM"],
+      img: "https://via.placeholder.com/220x330?text=Guntur+Kaaram+Poster"
+    },
+    {
+      title: "Major",
+      price: "₹150 (Single) / ₹195 (Multiplex) in Telangana :contentReference[oaicite:2]{index=2}",
+      times: ["1:30 PM", "4:30 PM", "8:00 PM"],
+      img: "https://via.placeholder.com/220x330?text=Major+Poster"
+    }
+  ];
+
+  function renderMovies() {
+    const container = document.getElementById("movies");
+    movies.forEach(movie => {
+      const card = document.createElement("div");
+      card.className = "movie-card";
+      card.innerHTML = `
+        <img src="${movie.img}" alt="${movie.title} poster" />
+        <div class="movie-info">
+          <h3>${movie.title}</h3>
+          <p><strong>Price:</strong> ${movie.price}</p>
+          <p><strong>Showtimes:</strong> ${movie.times.join(', ')}</p>
+          <button class="book-btn">Book Now</button>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  renderMovies();
+</script>
+
+</body>
+</html>
+
